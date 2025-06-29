@@ -48,8 +48,6 @@ const PaymentDetailsScreen = () => {
         </TouchableOpacity>
 
         <Text style={styles.title}>PAY</Text>
-
-        {/* Empty spacer to balance the left back button */}
         <View style={{ width: scale(30) }} />
       </View>
 
@@ -225,7 +223,7 @@ const styles = StyleSheet.create({
     borderRadius: scale(8),
     padding: scale(15),
     marginTop: verticalScale(12),
-    height: verticalScale(60), // Consistent height
+    height: verticalScale(60),
     alignItems: 'center',
   },
   methodLeft: { flexDirection: 'row', alignItems: 'center' },
@@ -265,7 +263,7 @@ const styles = StyleSheet.create({
   },
   feeRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between', // ✅ left & right align
+    justifyContent: 'space-between',
     marginBottom: verticalScale(10),
   },
   feeLabel: {
@@ -290,7 +288,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // paddingHorizontal: scale(16),
   },
   title: {
     fontSize: moderateScale(20),

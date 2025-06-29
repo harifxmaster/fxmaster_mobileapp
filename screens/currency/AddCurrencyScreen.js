@@ -1,12 +1,11 @@
-
-import React from "react";
-import { View ,Text} from "react-native";
+import React from 'react';
+import { View, Text } from 'react-native';
 const AddCurrencyScreen = () => {
-    return(
-        <View>
-            <Text style={{color:"black"}}>Add Currency</Text>
-        </View>
-    )
-}
+  return (
+    <View>
+      <Text style={{ color: 'black' }}>Add Currency</Text>
+    </View>
+  );
+};
 
-export default AddCurrencyScreen
+export default AddCurrencyScreen;

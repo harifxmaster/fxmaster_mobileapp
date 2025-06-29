@@ -1,19 +1,17 @@
-// src/components/CustomSendButton.js
 import React from 'react';
-import { View, Image,TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { View, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { scale } from '../utils/responsive';
 
-const CustomSendButton = ({ onPress}) => {
-
+const CustomSendButton = ({ onPress }) => {
   return (
     <View style={styles.container}>
       <View style={styles.shadowContainer}>
         <TouchableOpacity onPress={onPress} style={styles.button}>
-           <Image
-                  source={require('../assets/send.png')}
-                  style={styles.checkIcon}
-                  resizeMode="contain"
-                />
+          <Image
+            source={require('../assets/send.png')}
+            style={styles.checkIcon}
+            resizeMode="contain"
+          />
         </TouchableOpacity>
       </View>
       <Text style={styles.label}>Send</Text>
@@ -27,16 +25,13 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     position: 'absolute',
-    top: -30, // this lifts the button into the curve
+    top: -30,
     alignSelf: 'center',
     width: 80,
     zIndex: 10,
   },
 
   shadowContainer: {
-    // position: 'absolute',
-    // top: -30,
-    // alignSelf: 'center',
     shadowColor: '#4c8bf5',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.35,
@@ -56,16 +51,16 @@ const styles = StyleSheet.create({
   },
   labelContainer: {
     position: 'absolute',
-    bottom: 6, // align like other tab labels
+    bottom: 6,
   },
   label: {
-    marginTop:10,
+    marginTop: 10,
     fontSize: 12,
     color: '#081C42',
     fontWeight: '500',
   },
-   checkIcon: { 
-    width: scale(24), 
-    height: scale(24) 
-  }
+  checkIcon: {
+    width: scale(24),
+    height: scale(24),
+  },
 });

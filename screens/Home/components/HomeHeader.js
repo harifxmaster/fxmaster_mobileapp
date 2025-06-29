@@ -4,27 +4,26 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { scale, verticalScale } from '../../../utils/responsive';
 import { useNavigation } from '@react-navigation/native';
 
-
 const HomeHeader = () => {
-    const navigation = useNavigation();
-  
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-     
-       <Image
+      <Image
         source={require('../../../assets/FXMaster-2x.png')}
         style={styles.logo}
         resizeMode="contain"
       />
 
-    
       <View style={styles.rightIcons}>
-        
-        <TouchableOpacity onPress={() => navigation.navigate('NotificationScreen')} style={styles.iconButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('NotificationScreen')}
+          style={styles.iconButton}
+        >
           <Ionicons name="notifications-circle" size={35} color="#081C42" />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() =>navigation.navigate('ProfileScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
           <Image
             source={require('../../../assets/profile.png')}
             style={styles.avatar}
@@ -39,7 +38,7 @@ export default HomeHeader;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal:scale(16) ,
+    paddingHorizontal: scale(16),
     paddingTop: verticalScale(20),
     paddingBottom: verticalScale(12),
     flexDirection: 'row',

@@ -10,7 +10,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { scale, verticalScale, moderateScale } from '../../utils/responsive';
-import { privacy } from '../../assets/';
 
 const menuItems = [
   {
@@ -80,7 +79,11 @@ const ProfileScreen = () => {
             onPress={() => navigation.navigate(item.route)}
           >
             <View style={styles.menuLeft}>
-                <Image source={item.icon} style={styles.menuIcon} resizeMode="contain" />
+              <Image
+                source={item.icon}
+                style={styles.menuIcon}
+                resizeMode="contain"
+              />
               <Text style={styles.menuLabel}>{item.label}</Text>
             </View>
             <Icon name="chevron-forward-sharp" size={20} color="#081C42" />

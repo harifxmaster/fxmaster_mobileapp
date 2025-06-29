@@ -13,27 +13,29 @@ import benInactive from '../assets/beninactive.png';
 const Tab = createBottomTabNavigator();
 
 const renderTabBarBackground = () => <CustomTabBarBackground />;
-const getTabBarIcon = (routeName) => ({ focused }) => {
-  let iconSource;
+const getTabBarIcon =
+  routeName =>
+  ({ focused }) => {
+    let iconSource;
 
-  switch (routeName) {
-    case 'Home':
-      iconSource = focused ? homeActive : homeInactive;
-      break;
-    case 'Beneficiaries':
-      iconSource = focused ? benActive : benInactive;
-      break;
-    default:
-      return null;
-  }
+    switch (routeName) {
+      case 'Home':
+        iconSource = focused ? homeActive : homeInactive;
+        break;
+      case 'Beneficiaries':
+        iconSource = focused ? benActive : benInactive;
+        break;
+      default:
+        return null;
+    }
 
-  return (
-    <Image
-      source={iconSource}
-      style={{ width: 24, height: 24, resizeMode: 'contain' }}
-    />
-  );
-};
+    return (
+      <Image
+        source={iconSource}
+        style={{ width: 24, height: 24, resizeMode: 'contain' }}
+      />
+    );
+  };
 const renderCustomSendButton = props => <CustomSendButton {...props} />;
 const DummyScreen = () => {
   null;
@@ -56,7 +58,7 @@ const TabNavigator = () => {
           height: 70,
         },
         tabBarBackground: renderTabBarBackground,
-        tabBarIcon: getTabBarIcon(route.name), // ✅ safe usage
+        tabBarIcon: getTabBarIcon(route.name),
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -70,8 +72,8 @@ const TabNavigator = () => {
         }}
         listeners={({ navigation }) => ({
           tabPress: e => {
-            e.preventDefault(); // Prevent default tab behavior
-            navigation.navigate('PayScreen'); // Navigate to full-screen Send screen
+            e.preventDefault();
+            navigation.navigate('EnterAmountScreen');
           },
         })}
       />

@@ -191,7 +191,10 @@ const BeneficiariesScreen = () => {
               </Text>
               <Text style={styles.account}>{item.account}</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('PaymentDetailsScreen')} style={styles.payButton}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('PaymentDetailsScreen')}
+              style={styles.payButton}
+            >
               <Image
                 source={require('../../assets/send.png')}
                 style={styles.sendIcon}

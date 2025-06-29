@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { scale, verticalScale, moderateScale } from '../utils/responsive';
 
-const NotificationItem = ({ avatar, message, actionText, time, onActionPress }) => {
+const NotificationItem = ({
+  avatar,
+  message,
+  actionText,
+  time,
+  onActionPress,
+}) => {
   return (
     <View style={styles.row}>
       <Image source={avatar} style={styles.avatar} />
       <View style={styles.messageBlock}>
-        <Text style={styles.text} numberOfLines={2}
-  ellipsizeMode="tail">
+        <Text style={styles.text} numberOfLines={2} ellipsizeMode="tail">
           {message}
           <Text style={styles.highlight}> $780.1 </Text>
           is pending please{' '}
@@ -26,14 +31,14 @@ export default NotificationItem;
 
 const styles = StyleSheet.create({
   row: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  paddingHorizontal: scale(16),
-  height: verticalScale(100),  // Fixed height
-  width: '95%',              // Full width of screen
-  borderBottomWidth: 0.5,
-  borderBottomColor: '#ccc',
-},
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: scale(16),
+    height: verticalScale(100),
+    width: '95%',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#ccc',
+  },
   avatar: {
     width: scale(40),
     height: scale(40),
@@ -45,12 +50,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-  fontSize: moderateScale(13),
-  color: '#081C42',
-  lineHeight: moderateScale(18),
-  fontFamily: 'Poppins-Regular',
-  width: '100%',
-},
+    fontSize: moderateScale(13),
+    color: '#081C42',
+    lineHeight: moderateScale(18),
+    fontFamily: 'Poppins-Regular',
+    width: '100%',
+  },
   highlight: {
     color: '#0866C6',
     fontFamily: 'Poppins-SemiBold',
