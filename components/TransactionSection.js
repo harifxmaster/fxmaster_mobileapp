@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,47 +10,26 @@ import {
 import { scale, verticalScale, moderateScale } from '../utils/responsive';
 import { useNavigation } from '@react-navigation/native';
 
-const transactions = [
-  {
-    id: 1,
-    name: 'Alexander',
-    flag: require('../assets/gb.png'),
-    avatar: require('../assets/user1.png'),
-    date: '01/08/25, 13.00 GMT',
-    amount: '+£1104.00',
-    isPositive: true,
-  },
-  {
-    id: 2,
-    name: 'Alexander',
-    flag: require('../assets/gb.png'),
-    avatar: require('../assets/user2.png'),
-    date: '01/08/25, 13.00 GMT',
-    amount: '-£1104.00',
-    isPositive: false,
-  },
-  {
-    id: 3,
-    name: 'Alexander',
-    flag: require('../assets/gb.png'),
-    avatar: require('../assets/user1.png'),
-    date: '01/08/25, 13.00 GMT',
-    amount: '+£1104.00',
-    isPositive: true,
-  },
-  {
-    id: 4,
-    name: 'Alexander',
-    flag: require('../assets/gb.png'),
-    avatar: require('../assets/user2.png'),
-    date: '01/08/25, 13.00 GMT',
-    amount: '+£1104.00',
-    isPositive: true,
-  },
-];
+import Loader from './Loader';
 
-const TransactionSection = () => {
+const TransactionSection = ({
+  transactions = [],
+  loading = false,
+  title = 'Transactions',
+  showSeeAll = true,
+  seeAllText = 'See All',
+  onPressSeeAll,
+}) => {
   const navigation = useNavigation();
+
+  if (loading) {
+    return (
+      <View style={styles.loaderContainer}>
+        <Loader isVisible={true} />
+      </View>
+    );
+  }
+
   const renderItem = ({ item }) => (
     <TouchableOpacity
       style={styles.itemRow}
@@ -74,18 +53,21 @@ const TransactionSection = () => {
     </TouchableOpacity>
   );
 
+  // if (error) {
+  //   return <Text style={{ color: 'red' }}>{error}</Text>;
+  // }
+
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text style={styles.title}>Transactions</Text>
-        <TouchableOpacity>
-          <Text
-            onPress={() => navigation.navigate('AllTransaction')}
-            style={styles.viewAll}
-          >
-            See All
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.title}>{title}</Text>
+        {showSeeAll && (
+          <TouchableOpacity>
+            <Text onPress={onPressSeeAll} style={styles.viewAll}>
+              {seeAllText}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
 
       <FlatList
@@ -102,6 +84,7 @@ export default TransactionSection;
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     backgroundColor: '#fff',
     paddingHorizontal: scale(18),
     paddingVertical: verticalScale(20),
@@ -164,5 +147,10 @@ const styles = StyleSheet.create({
   amount: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: moderateScale(16),
+  },
+  loaderContainer: {
+    height: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

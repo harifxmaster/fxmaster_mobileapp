@@ -30,10 +30,10 @@ const cardData = [
     flag: require('../assets/us.png'),
   },
   {
-    title: 'EUR',
-    currencySymbol: '€',
+    title: 'INR',
+    currencySymbol: '₹',
     amount: '752003.00',
-    flag: require('../assets/eu.png'),
+    flag: require('../assets/inr.png'),
   },
   {
     isAddCard: true,
