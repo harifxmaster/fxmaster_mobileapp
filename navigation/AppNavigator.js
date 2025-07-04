@@ -11,6 +11,10 @@ import ProfileScreen from '../screens/Profile/ProfileScreen';
 import NotificationScreen from '../screens/Notifications/NotificationScreen';
 import EnterAmountScreen from '../screens/SendMoney/EnterAmountScreen';
 import BeneficiariesScreen from '../screens/Beneficiaries/BeneficiariesScreen';
+import AddBeneficiaryScreen from '../screens/Beneficiaries/AddBeneficiarieScreen';
+import SelectBeneficiary from '../screens/Beneficiaries/SelectBeneficiary';
+import BeneficiaryTypeScreen from '../screens/Beneficiaries/BeneficiaryTypeScreen';
+import OtpVerificationScreen from '../screens/Beneficiaries/OtpVerificationScreen';
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = () => {
@@ -47,6 +51,22 @@ const AppNavigator = () => {
           <Stack.Screen
             name="BeneficiariesScreen"
             component={BeneficiariesScreen}
+          />
+          <Stack.Screen
+            name="AddBeneficiaryScreen"
+            component={AddBeneficiaryScreen}
+          />
+           <Stack.Screen
+            name="SelectBeneficiary"
+            component={SelectBeneficiary}
+          />
+          <Stack.Screen
+            name="BeneficiaryTypeScreen"
+            component={BeneficiaryTypeScreen}
+          />
+          <Stack.Screen
+            name="OtpVerificationScreen"
+            component={OtpVerificationScreen}
           />
         </>
       ) : (

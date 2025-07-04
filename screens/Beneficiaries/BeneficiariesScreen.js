@@ -148,7 +148,7 @@ const BeneficiariesScreen = () => {
           />
         </TouchableOpacity>
         <Text style={styles.title}>Beneficiary List</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('AddBeneficiary')}>
+        <TouchableOpacity onPress={() => navigation.navigate('AddBeneficiaryScreen')}>
           <Image
             source={require('../../assets/plus.png')}
             style={styles.iconCircle}
